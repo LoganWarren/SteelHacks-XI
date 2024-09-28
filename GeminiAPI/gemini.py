@@ -1,7 +1,12 @@
 import requests
 import json
+import os
+from dotenv import load_dotenv
 
-API_KEY = "AIzaSyBPkKT5lczvRzwVS3B-dDyc_tPggJg3DxE"
+# Load environment variables from .env file
+load_dotenv()
+
+API_KEY = os.getenv("API_KEY")
 url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key={API_KEY}"
 
 headers = {
@@ -12,7 +17,7 @@ data = {
     "contents": [
         {
             "parts": [
-                {"text": "Write me one sentence joke"}
+                {"text": "Give me a one line joke"}
             ]
         }
     ]
