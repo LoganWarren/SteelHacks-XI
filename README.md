@@ -2,6 +2,7 @@
 **Team Members:** Logan Warren, Ajay A. Ohm Nathan, Josh Sitler
 
 ## Inspiration
+no
 ...
 ## What it does
 ...
