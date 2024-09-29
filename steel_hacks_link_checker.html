@@ -75,12 +75,12 @@
 
             // Make a POST request to the Flask server
             try {
-                const response = await fetch('SteelHacks-XI-main\phishing_detection_api\app.py', {
+                const response = await fetch('/check_link', {  // Adjusted endpoint to match Flask route
                     method: 'POST',
                     headers: {
-                        'Content-Type': 'app.py',
+                        'Content-Type': 'application/json',  // Corrected content type
                     },
-                    body: JSON.stringify({ links: [linkInput] }),
+                    body: JSON.stringify({ url: linkInput }),  // Corrected the key name
                 });
 
                 if (!response.ok) {
@@ -89,7 +89,7 @@
 
                 const data = await response.json();
                 // Display the result
-                resultDiv.innerText = data[0] === 1 ? 'Phishing detected!' : 'Link is safe.';
+                resultDiv.innerText = data.result === 'Phishing' ? 'Phishing detected!' : 'Link is safe.';
             } catch (error) {
                 resultDiv.innerText = 'Error checking the link: ' + error.message;
             }

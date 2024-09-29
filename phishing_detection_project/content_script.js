@@ -1,3 +1,4 @@
+
 let links = document.getElementsByTagName('a');  // Get all the links on the page
 
 for (let i = 0; i < links.length; i++) {

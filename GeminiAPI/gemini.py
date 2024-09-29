@@ -3,7 +3,6 @@ import json
 import os
 from dotenv import load_dotenv
 
-# Load environment variables from .env file
 load_dotenv()
 
 API_KEY = os.getenv("API_KEY")
@@ -25,7 +24,6 @@ data = {
 
 response = requests.post(url, headers=headers, data=json.dumps(data))
 
-# Extracting and formatting the response
 if response.status_code == 200:
     response_json = response.json()
     answer = response_json['candidates'][0]['content']['parts'][0]['text']

@@ -2,15 +2,12 @@ from flask import Flask, request, jsonify
 import joblib
 import pandas as pd
 from urllib.parse import urlparse
-import re  # Importing regular expressions module
+import re  
 
-# Load your pre-trained model
 pipeline = joblib.load('phishing_detection_pipeline.pkl')
 
-# Initialize Flask app
 app = Flask(__name__)
 
-# Function to extract features from URL
 def extract_url_features(url):
     parsed_url = urlparse(url)
     domain = parsed_url.netloc
@@ -18,7 +15,6 @@ def extract_url_features(url):
     query = parsed_url.query
     file_name = path.split('/')[-1] if path else ''
     
-    # Helper function to check if a domain is an IP address
     def is_ip(domain):
         return bool(re.match(r"(\d{1,3}\.){3}\d{1,3}", domain))
     
@@ -62,7 +58,7 @@ def extract_url_features(url):
         'qty_vowels_domain': sum(1 for char in domain if char in 'aeiou'),
         'domain_length': len(domain),
         'domain_in_ip': 1 if is_ip(domain) else 0,
-        'server_client_domain': 0,  # Example placeholder, adjust logic if needed
+        'server_client_domain': 0, 
         'qty_dot_directory': path.count('.'),
         'qty_hyphen_directory': path.count('-'),
         'qty_underline_directory': path.count('_'),
