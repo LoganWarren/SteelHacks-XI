@@ -1,5 +1,5 @@
 # Phishing Extension (change name if needed) - SteelHacks-XI
-**Team Members:** Logan Warren, Ajay A. Ohm Nathan, Josh Sitler
+**Team Members:** Logan Warren, Josh Sitler
 
 ## Inspiration
 no
